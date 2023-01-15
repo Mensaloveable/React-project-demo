@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
-
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
@@ -16,17 +15,17 @@ const ExpenseForm = (props) => {
   };
   const dateChangeHandler = (event) => {
     setDate(event.target.value);
-  }; 
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const item = {
       title: title,
       date: new Date(date),
-      amount: amount,
+      amount: +amount,
     };
 
-    props.onSaveExpenseData(item)
+    props.onSaveExpenseData(item);
     setAmount("");
     setDate("");
     setTitle("");
